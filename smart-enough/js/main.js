@@ -1,4 +1,4 @@
-f//JAVASCRIPT
+//JAVASCRIPT
 
 //scroll shrink menu
 $(document).on("scroll", function(){
