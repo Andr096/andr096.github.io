@@ -118,13 +118,13 @@ function controlloInput() {
         } else {
             return true //pieno
         }
-    })
+    });
 
     let campiRiempiti = listaInputStatus.every(function(item) {
-    return item == true;
-    })
+        return item == true;
+    });
 
-    let nomeUtente;
+    let nomeUtente
       
 
     //feedback visivo: campi con errore
@@ -133,7 +133,7 @@ function controlloInput() {
         //console.log(item.value)
 
         //se il campo è VUOTO
-        if(item.value.length == 0 || this.value == " "){
+        if (item.value.length == 0 || this.value == " "){
             //console.log("il campo è vuoto")
     
             //rimuovere d-none da span.errore per farlo apparire, però solo a quello relativo al campo vuoto
@@ -145,8 +145,6 @@ function controlloInput() {
             //aggiungere .border-danger al .form-control
             item.classList.add('border-danger');
 
-            //inserie false nella lista (vuoto)
-            
     
         //se il campo è PIENO
         } else {
@@ -159,13 +157,11 @@ function controlloInput() {
             }
 
             item.classList.remove('border-danger');
-
-            //inserire true nella lista (pieno)
         }
     }
 
-     //cosa accade SE TUTTI I CAMPI SONO PIENI
-     if (campiRiempiti == true) {
+    //cosa accade SE TUTTI I CAMPI SONO PIENI
+    if (campiRiempiti == true) {
 
         for(item of inputs) {
 
@@ -218,13 +214,95 @@ bottoneInvia.addEventListener("click", controlloInput)
 
 // MODALITA' RIPARA ------------------------------------------------------------------------------
 
-let bottoneRipara = document.getElementById("bottoneRipara")
-let bottoneContatore = document.getElementById("bottoneContatore") 
+let bottoneRipara = document.getElementById("bottoneRipara");
+let bottoneContatore = document.getElementById("bottoneContatore");
 let audioChiaveInglese = new Audio('sound/ratchet-sound-effect.mp3');
 let listaElementSbagliati = document.querySelectorAll('.correggimi');
 let stoRiparando = false;
 let riparazioneFinita = false;
 
+let sezioneFiltri = document.getElementById('sezioneFiltri')
+
+
+
+
+function storeHref(elemento) {
+    
+    let hrefValue = elemento.getAttribute("href")
+    if (hrefValue != null) {
+        console.log(hrefValue)
+
+        //store href
+        elemento.setAttribute('data-href', hrefValue);
+        //Remove href
+        elemento.removeAttribute("href")
+    }
+}
+
+function ricreaHref(elemento) {
+
+    let dataHrefValue = elemento.getAttribute("data-href")
+    if (dataHrefValue != null) {
+        console.log(dataHrefValue)
+
+        //crea href
+        elemento.setAttribute('href', dataHrefValue);
+        //Remove data-href
+        elemento.removeAttribute("data-href")
+    }
+}
+
+function storeDataTarget(elemento) {
+
+    let dataTargetValue = elemento.getAttribute("data-target")
+    if (dataTargetValue != null) {
+        console.log(dataTargetValue)
+
+        //store data-target
+        elemento.setAttribute('data-target-store', dataTargetValue);
+        //Remove data-target
+        elemento.removeAttribute("data-target")
+    }
+}
+
+function ricreaDataTarget(elemento) {
+
+    let dataTargetStoreValue = elemento.getAttribute("data-target-store")
+    if (dataTargetStoreValue != null) {
+        console.log(dataTargetStoreValue)
+
+        //creo data-target
+        elemento.setAttribute('data-target', dataTargetStoreValue);
+        //Remove data-target-store
+        elemento.removeAttribute("data-target-store")
+    }
+}
+
+function storeDataDismiss(elemento) {
+
+    let dataDismissValue = elemento.getAttribute("data-dismiss")
+    if (dataDismissValue != null) {
+        console.log(dataDismissValue)
+
+        //store data-dismiss
+        elemento.setAttribute('data-dismiss-store', dataDismissValue);
+        //Remove data-dismiss
+        elemento.removeAttribute("data-dismiss")
+    }
+}
+
+function ricreaDataDismiss(elemento) {
+
+    let dataDismissStoreValue = elemento.getAttribute("data-dismiss-store")
+    if (dataDismissStoreValue != null) {
+        console.log(dataDismissStoreValue)
+
+        //creo data-dismiss
+        elemento.setAttribute('data-dismiss', dataDismissStoreValue);
+        //Remove data-dismiss-store
+        elemento.removeAttribute("data-dismiss-store")
+    }
+}
 
 function riparaSubito() {
 
@@ -239,7 +317,6 @@ function riparaSubito() {
             item.classList.remove("logo-transition-correggimi")
         }
     }
-
     document.getElementById('cursoreAlternativo').classList.add('d-none')
     document.body.classList.remove('togli-cursore')
 
@@ -247,6 +324,8 @@ function riparaSubito() {
     bottoneRipara.style.transition = "all 1.0s cubic-bezier(1, -0.01, 0.57, 1)" 
 
     bottoneContatore.style.right = "-" + 75 + "px"
+
+    sezioneFiltri.classList.remove("d-none")
 
     riparazioneFinita = true
 
@@ -259,41 +338,14 @@ function riparaSubito() {
             item.classList.remove("logo-transition-correggimi")
         }
 
-        //eliminiamo e storiamo gli href
-        let dataHrefValue = item.getAttribute("data-href")
-        if (dataHrefValue != null) {
-            console.log(dataHrefValue)
+        //elimino data-href e ricreo href
+        ricreaHref(item)
 
-            //store href
-            item.setAttribute('href', dataHrefValue);
-            //Remove href
-            //item.href = '';
-            item.removeAttribute("data-href")
-        }
+        //elimino data-target-store e ricreo data-target        
+        ricreaDataTarget(item)
 
-        //eliminiamo e storiamo i data-target 
-        let dataTargetStoreValue = item.getAttribute("data-target-store")
-        if (dataTargetStoreValue != null) {
-            console.log(dataTargetStoreValue)
-
-            //store data-target
-            item.setAttribute('data-target', dataTargetStoreValue);
-            //Remove data-target
-            //item.href = '';
-            item.removeAttribute("data-target-store")
-        }
-
-        //eliminiamo e storiamo i data-dismiss
-        let dataDismissStoreValue = item.getAttribute("data-dismiss-store")
-        if (dataDismissStoreValue != null) {
-            console.log(dataDismissStoreValue)
-
-            //store data-dismiss
-            item.setAttribute('data-dismiss', dataDismissStoreValue);
-            //Remove data-dismiss
-            //item.href = '';
-            item.removeAttribute("data-dismiss-store")
-        }
+        //eliminiamo data-dismiss-store e ricreo i data-dismiss
+        ricreaDataDismiss(item)
     }
 }
 
@@ -304,22 +356,23 @@ function riparaErrore() {
 
         //parte suono
         audioChiaveInglese.play()
-        //cambia colore
+        //cambia aspetto il cursore
         coloreOriginale()
 
         if (this.classList.contains("navbar-brand")) {
             this.classList.add("logo-transition-correggimi")
         }
 
-        //il click sull'ultimo elemento con class .correggimi 
         let elementiConErrore = document.querySelectorAll('.correggimi');
         //console.log(elementiConErrore)
 
         bottoneContatore.innerText = elementiConErrore.length
 
+        //il click sull'ultimo elemento con class .correggimi 
         if (elementiConErrore.length == 0) {
 
             bottoneContatore.style.right = "-" + 75 + "px"
+            sezioneFiltri.classList.remove("d-none")
 
             //Chiudere tutti i modali
             setTimeout(function(){ 
@@ -335,30 +388,12 @@ function riparaErrore() {
         
     //SECONDO CLICK su portofolio-box
     } else if (this.classList.contains("portfolio-box")){
-
-        //eliminiamo e storiamo i data-target eventuali
-        let dataTargetStoreValue = this.getAttribute("data-target-store")
-        if (dataTargetStoreValue != null) {
-            console.log(dataTargetStoreValue)
-
-            //store data-target
-            this.setAttribute('data-target', dataTargetStoreValue);
-            //Remove data-target
-            this.removeAttribute("data-target-store")
-        }
+        //elimino data-target-store e ricreo data-target        
+        ricreaDataTarget(this)
 
     } else if (this.classList.contains("btn")){
-
-        //eliminiamo e storiamo i data-dismiss eventuali
-        let dataDismissStoreValue = item.getAttribute("data-dismiss-store")
-        if (dataDismissStoreValue != null) {
-            //console.log(dataDismissStoreValue)
-
-            //store data-dismiss
-            item.setAttribute('data-dismiss', dataDismissStoreValue);
-            //Remove data-dismiss
-            item.removeAttribute("data-dismiss-store")
-        }
+        //eliminiamo data-dismiss-store e ricreo i data-dismiss
+        ricreaDataDismiss(this)
     }
 
 }
@@ -397,8 +432,8 @@ function modalitaRipara() {
     
     //TERMINA MODALITA' RIPARA
     if (this.classList.contains('modalita-ripara')) {
-        this.classList.remove('modalita-ripara')
 
+        this.classList.remove('modalita-ripara')
         stoRiparando = false
 
         chiudiIcona.classList.add('d-none')
@@ -410,17 +445,16 @@ function modalitaRipara() {
 
         bottoneContatore.style.right = "-" + 75 + "px"
 
-        //FINE MODALITA' RIPARAZIONE. nascondiamo il bottone "ripara" se non ci sono più errori da sistemare. ---------
+        //FINE MODALITA' RIPARAZIONE DEFINITIVA. nascondo il bottone "ripara" se non ci sono più errori da sistemare
         if (elementiConErrore.length == 0) {
             
             bottoneRipara.style.right = "-" + 75 + "px"
             bottoneRipara.style.transition = "all 1.5s cubic-bezier(1, -0.01, 0.57, 1)" 
 
             riparazioneFinita = true
-            
         }
 
-        for (item of listaElementSbagliati) {
+        for (item of elementiConErrore) {
             item.removeEventListener("click", riparaErrore);
             item.removeEventListener("mouseover", coloreNuovo);
             item.removeEventListener("mouseout", coloreOriginale);
@@ -429,41 +463,14 @@ function modalitaRipara() {
                 item.classList.remove("logo-transition-correggimi")
             }
 
-            //eliminiamo e storiamo gli href
-            let dataHrefValue = item.getAttribute("data-href")
-            if (dataHrefValue != null) {
-                console.log(dataHrefValue)
+            //elimino data-href e ricreo href
+            ricreaHref(item)
 
-                //store href
-                item.setAttribute('href', dataHrefValue);
-                //Remove href
-                //item.href = '';
-                item.removeAttribute("data-href")
-            }
+            //elimino data-target-store e ricreo data-target        
+            ricreaDataTarget(item)
 
-            //eliminiamo e storiamo i data-target (seconda barriera sicurezza)
-            let dataTargetStoreValue = item.getAttribute("data-target-store")
-            if (dataTargetStoreValue != null) {
-                console.log(dataTargetStoreValue)
-
-                //store data-target
-                item.setAttribute('data-target', dataTargetStoreValue);
-                //Remove data-target
-                //item.href = '';
-                item.removeAttribute("data-target-store")
-            }
-
-            //eliminiamo e storiamo i data-dismiss (seconda barriera sicurezza)
-            let dataDismissStoreValue = item.getAttribute("data-dismiss-store")
-            if (dataDismissStoreValue != null) {
-                console.log(dataDismissStoreValue)
-
-                //store data-dismiss
-                item.setAttribute('data-dismiss', dataDismissStoreValue);
-                //Remove data-dismiss
-                //item.href = '';
-                item.removeAttribute("data-dismiss-store")
-            }
+            //eliminiamo data-dismiss-store e ricreo i data-dismiss
+            ricreaDataDismiss(item)
         }
 
     
@@ -493,51 +500,28 @@ function modalitaRipara() {
             item.addEventListener("mouseover", coloreNuovo);
             item.addEventListener("mouseout", coloreOriginale);
 
-            let hrefValue = item.getAttribute("href")
-            if (hrefValue != null) {
-                //store href
-                item.setAttribute('data-href', hrefValue);
-                //Remove href
-                //item.href = '';
-                item.removeAttribute("href")
-            }
-
-            let dataTargetValue = item.getAttribute("data-target")
-            if (dataTargetValue != null) {
-                console.log(dataTargetValue)
-
-                //store data-target
-                item.setAttribute('data-target-store', dataTargetValue);
-                //Remove data-target
-                //item.href = '';
-                item.removeAttribute("data-target")
-            }
-
-            let dataDismissValue = item.getAttribute("data-dismiss")
-            if (dataDismissValue != null) {
-                console.log(dataDismissValue)
-
-                //store data-dismiss
-                item.setAttribute('data-dismiss-store', dataDismissValue);
-                //Remove data-dismiss
-                //item.href = '';
-                item.removeAttribute("data-dismiss")
-            }
+            storeHref(item)
+            storeDataDismiss(item)
+            storeDataTarget(item)
         }
     }
 }
 
-//bottone in basso a destra
+//bottone in basso a destra per fare iniziare la modalità
 bottoneRipara.addEventListener("click", modalitaRipara);
+
+
+
 
 //evento keydown per shortcut
 document.addEventListener ("keydown", function (event) {
 
     let keyCode = event.keyCode
+    let keyCodeWhich = event.which || event.keyCode
     //console.log(event.key + " - " + keyCode)
 
     //shift + "+" = asterisco* 221
-    if (keyCode === 221) {  // case sensitive
+    if (keyCodeWhich === 221) {  
         console.log("hai premuto shift + più")
         riparaSubito()
     }
@@ -550,45 +534,6 @@ document.addEventListener ("keydown", function (event) {
 
 
 
-//correzione px bottone ripara / per ora la levo
-
-function correzioneBottone() {
-
-    if(riparazioneFinita == false) {
-
-        if (this.classList.contains("portfolio-box") ) {
-            bottoneRipara.style.right = 30 + "px"
-        } else if (this.classList.contains("close-modal")){    //   || this.getAttribute('data-dismiss') != "modal"
-            bottoneRipara.style.right = 15 + "px"
-        }
-    }
-}
-/*
-let tuttiPortofolioBoxes = document.querySelectorAll('.portfolio-box');
-for (item of tuttiPortofolioBoxes) {
-    item.addEventListener("click", correzioneBottone);
-}
-
-let tuttiChiudiModale = document.querySelectorAll('[data-dismiss="modal"]');
-for (item of tuttiChiudiModale) {
-    item.addEventListener("click", correzioneBottone);
-}
-*/
-
-
-
-
-
-
-
-//CTRL + K + C per commentare    CTRL + K + U per uncommentare
-
-//var btn = document.createElement("BUTTON");
-//btn.innerHTML = "CLICK ME";                 
-//document.body.appendChild(btn)
-
-//funzione creaportoflio. Dentro con un ciclo per ogni progetto creo il box portofolio e la finestra modale
-
 
 //JSON GET DATA ------------------------------------------------------------------------------------------
 
@@ -596,18 +541,35 @@ for (item of tuttiChiudiModale) {
 //variabili
 let url = "json/SmartEnoughData.json"
 let datiJson = [] //dove impacchetterò i dati del json
+let contenitorePortofolioBox = document.getElementById('contenitorePortofolioBox')
+let contenitoreModali = document.getElementById('contenitoreModali')
+const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
 
-const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
-  "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
 
 
+//FILTRO CATEGORIA
+function filtraCategoria(categoriaSelezionata) {
 
-function creaBoxPortofolio(progetto, indice) {
+    contenitorePortofolioBox.innerHTML = ""
+    contenitoreModali.innerHTML = ""
+    let progetti = datiJson.projects
 
-    let numeroProgetto = indice + 1
+    if (radioValue != "Tutti") {
+        let progettiFiltrati =  progetti.filter(function(progetti) {
+            return progetti.category == categoriaSelezionata
+        });  
 
-    //contenitore principale
-    let contenitorePortofolioBox = document.getElementById('contenitorePortofolioBox')
+        creaElementi(progettiFiltrati)
+
+    } else {
+        creaElementi(datiJson.projects)
+    }
+}
+
+
+function creaBoxPortofolio(progetto) {
+
+    let numeroProgetto = progetto.number
 
     //creo gli elementi che compongono il box
     let colonna = document.createElement('div')
@@ -642,16 +604,16 @@ function creaBoxPortofolio(progetto, indice) {
     portfolioBoxCaption.append(nomeProgetto)
 
     //aggiungo la classe .corregimi ad un solo box
-    if (numeroProgetto == 5) {
+    if (numeroProgetto == 5 && riparazioneFinita  == false) {
         portofolioBox.classList.add('correggimi')
     }
 }
 
-function creaFinestraModale(progetto, indice) {
+function creaFinestraModale(progetto) {
 
     //console.log(progetto)
 
-    let numeroProgetto = indice + 1
+    let numeroProgetto = progetto.number
 
     //creo gli elementi che compongono il modale
     let portofolioModal = document.createElement('div')
@@ -675,21 +637,6 @@ function creaFinestraModale(progetto, indice) {
 
     let iconaChiudi = document.createElement('i')
     iconaChiudi.className = 'fas fa-times fa-3x text-primary'
-
-    //svg
-    //let svg = document.createElement('svg')
-    // svg.setAttribute("role", "img")
-    // svg.setAttribute("xmlns", "http://www.w3.org/2000/svg")
-    // svg.setAttribute("viewBox", "0 0 320 512")
-
-
-    /*
-    let path = document.createElement('path')
-    path.setAttribute("fill", "currentColor")
-    path.setAttribute("d", "M193.94 256L296.5 153.44l21.15-21.15c3.12-3.12 3.12-8.19 0-11.31l-22.63-22.63c-3.12-3.12-8.19-3.12-11.31 0L160 222.06 36.29 98.34c-3.12-3.12-8.19-3.12-11.31 0L2.34 120.97c-3.12 3.12-3.12 8.19 0 11.31L126.06 256 2.34 379.71c-3.12 3.12-3.12 8.19 0 11.31l22.63 22.63c3.12 3.12 8.19 3.12 11.31 0L160 289.94 262.56 392.5l21.15 21.15c3.12 3.12 8.19 3.12 11.31 0l22.63-22.63c3.12-3.12 3.12-8.19 0-11.31L193.94 256z")
-    0*/
-
-    //svg.append(path)
 
     let container = document.createElement('div')
     container.className = 'container'
@@ -759,7 +706,7 @@ function creaFinestraModale(progetto, indice) {
     bottoneChiudi.append(" Chiudi Progetto")
 
     //appendo tutto 
-    document.body.append(portofolioModal)
+    contenitoreModali.append(portofolioModal)
     portofolioModal.append(modalDialog)
     modalDialog.append(modalContent)
 
@@ -783,28 +730,31 @@ function creaFinestraModale(progetto, indice) {
     modalBody.append(bottoneChiudi)
 
     //aggiungo la classe .corregimi ad alcuni elementi
-    if (numeroProgetto == 1 || numeroProgetto == 6) {
+    if ( (numeroProgetto == 1 || numeroProgetto == 6) && riparazioneFinita  == false ) {
         immagine.classList.add('correggimi')
     }
 
-    if (numeroProgetto == 3) {
+    if (numeroProgetto == 3 && riparazioneFinita  == false) {
         bottoneChiudi.classList.add('correggimi')
+    }
+}
+
+
+function creaElementi(progetti) {
+
+    for (item of progetti) {
+        //console.log(item)
+        creaBoxPortofolio(item)
+        creaFinestraModale(item)
     }
 }
 
 
 
 function chiamataPortofolioJson(data) {
+
     datiJson = data
-
-    let tuttiProgetti = data.projects
-    //console.log(tuttiProgetti)
-
-    for (item of tuttiProgetti) {
-        //console.log(item)
-        creaBoxPortofolio(item, tuttiProgetti.indexOf(item))
-        creaFinestraModale(item, tuttiProgetti.indexOf(item))
-    }
+    creaElementi(datiJson.projects)
 }
 
 $.get(url, chiamataPortofolioJson)
@@ -820,8 +770,9 @@ $.get(url, chiamataPortofolioJson)
 
 
 
-//LOADING SCREEN
 
+
+//LOADING SCREEN
 let preLoad = document.getElementById('preloading')
 
 //console.log("prova: ", sessionStorage.getItem('pagina'))
@@ -850,4 +801,20 @@ $(window).on('load', function(){
         setTimeout(removeLoader, 2000); 
     }
 });
+
+
+
+
+
+// RADIO BUTTONS FILTRO
+
+document.getElementById("Tutti").checked = true;
+
+let radioValue
+$('#radioButtons').on('change', function() {
+
+    radioValue = $("input[name='filtro']:checked").val();
+    console.log("Valore: " + radioValue)
+    filtraCategoria(radioValue)
+ });
 

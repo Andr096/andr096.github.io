@@ -7,7 +7,8 @@
     "phone":"(+ 39) 06 50 50 500",
     "projects":[
         {
-            "image":"https://voltanix.github.io/smart-enough//img/portfolio/01-bicchiere-vino.jpg",
+            "number":1,
+            "image":"https://voltanix.github.io/smart-enough/img/portfolio/01-bicchiere-vino.jpg",
             "name":"Calice da vino ricercato",
             "description":"Abbiamo portato sulle vostre tavole l'utensile per l'esperienza enogastronomica più portentosa della vostra vita. Purtroppo non tutti riescono ad apprezzare l'arte. Molti si sono anche lamentati della camicie imbrattate dal vino: colpa loro se non hanno ancora imparato a bere alla veneranda età di cinquant'anni.",
             "date":{
@@ -18,7 +19,8 @@
             "category":"Cucina"
         },
         {
-            "image":"https://voltanix.github.io/smart-enough//img/portfolio/02-chiave-tonda.jpg",
+            "number":2,
+            "image":"https://voltanix.github.io/smart-enough/img/portfolio/02-chiave-tonda.jpg",
             "name":"La chiave più comoda del mondo",
             "description":"È sempre stato noioso aprire la propria porta di casa, perciò noi abbiamo voluto renderlo un pò più intrigante. D'ora in poi entrare in casa sarà una vera e propria sfida grazie alla studiata ergonomia di questo prodotto.",
             "date":{
@@ -29,6 +31,7 @@
             "category":"Casa"
         },
         {
+            "number":3,
             "image":"https://voltanix.github.io/smart-enough/img/portfolio/03-annafiatoio-storto.jpg",
             "name":"Annafiatoio moderno",
             "description":"Abbiamo passato tutta la vita ad annaffiare le piante del nostro giardino, ma nessuno ha mai pensato ai poveri annafiatoi? Anche a loro hanno bisogno di un'idratazione giornaliera e grazie a noi tutto questo è ora possibile. Diciamo basta alla discriminazione contro gli annafiatoi!",
@@ -40,6 +43,7 @@
             "category":"Casa"
         },
         {
+            "number":4,
             "image":"https://voltanix.github.io/smart-enough/img/portfolio/04-piatto-bucato.jpg",
             "name":"Piatto di design",
             "description":"Kitch & Chich ci ha lanciato una sfida: reinventare il classico piatto fondo. In questo caso particolare è molto comodo con la minestra: potrà essere gustata, senza l'uso del cucchiaio, semplicemente utilizzando il foro preposto sulla base del piatto. Senza di noi le persone mangerebbero ancora come nel Paleolitico.",
@@ -51,6 +55,7 @@
             "category":"Cucina"
         },
         {
+            "number":5,
             "image":"https://voltanix.github.io/smart-enough/img/portfolio/05-stivali-aperti.jpg",
             "name":"Stivali alla moda",
             "description":"Ti sei stufato delle solite scarpe con i tacchi? Vuoi diventare la nuova Chiara Ferragni? Sei nel posto giusto. Sfoggia questi stivali ovunque e fatti invidiare dalle tue amiche. Inolte, in caso di pioggia, avrai i piedi sempre umidi al punto giusti e d'estate saranno sempre freschissimi.",
@@ -62,6 +67,7 @@
             "category":"Fashion"
         },
         {
+            "number":6,
             "image":"https://voltanix.github.io/smart-enough/img/portfolio/06-sieda-scomoda.jpg",
             "name":"Sedia rossa",
             "description":"È una normalissima sedia rossa, nè più, nè meno. Non capiamo perchè la gente la odi tanto, è perfetta per una postura eretta.",
