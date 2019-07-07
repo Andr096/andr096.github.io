@@ -585,7 +585,7 @@ for (item of tuttiChiudiModale) {
 
 
 //variabili
-let url = "https://voltanix.github.io/smart-enough/json/smartEnoughData.json"
+let url = "https://voltanix.github.io/smart-enough/json/SmartEnoughData.json"
 let datiJson = [] //dove impacchetterò i dati del json
 
 const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
