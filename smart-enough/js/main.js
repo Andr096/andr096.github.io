@@ -594,7 +594,7 @@ for (item of tuttiChiudiModale) {
 
 
 //variabili
-let url = "json/smartEnoughData.json"
+let url = "json/SmartEnoughData.json"
 let datiJson = [] //dove impacchetterò i dati del json
 
 const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
