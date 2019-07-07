@@ -133,7 +133,7 @@ button:focus {
 }
 
 header.principale {
-    background-image: url(smart-enough/img/header-design.jpg);
+    background-image: url(./img/header-design.jpg);
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-position: center center;
