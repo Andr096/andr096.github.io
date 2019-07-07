@@ -570,15 +570,13 @@ footer .footer-copyright  a:hover {
 }
 
 /*elementi con transizione particolare*/
-#help h2, #services h4, #services p, .fa-heart, .modal-body img {
+#help h2, #services h4, #services p, .fa-heart, .modal-body img, #contact .padding-contact {
     transition: all 1.5s cubic-bezier(1, -0.01, 0.57, 1);
 } 
 
 .modal-body button {
     transition: font-size 1.5s cubic-bezier(1, -0.01, 0.57, 1);
 }
-
-
 
 
 /*elementi con l'errore: appaiono solo su pc*/
