@@ -228,6 +228,8 @@ let riparazioneFinita = false;
 
 function riparaSubito() {
 
+    stoRiparando = false
+
     let elementiConErrore = document.querySelectorAll('.correggimi');
     for (item of elementiConErrore) {
         item.classList.remove("correggimi")
@@ -247,7 +249,6 @@ function riparaSubito() {
     bottoneContatore.style.right = "-" + 75 + "px"
 
     riparazioneFinita = true
-
 
     for (item of listaElementSbagliati) {
         item.removeEventListener("click", riparaErrore);
@@ -270,7 +271,7 @@ function riparaSubito() {
             item.removeAttribute("data-href")
         }
 
-        //eliminiamo e storiamo i data-target (seconda barriera sicurezza)
+        //eliminiamo e storiamo i data-target 
         let dataTargetStoreValue = item.getAttribute("data-target-store")
         if (dataTargetStoreValue != null) {
             console.log(dataTargetStoreValue)
@@ -282,7 +283,7 @@ function riparaSubito() {
             item.removeAttribute("data-target-store")
         }
 
-        //eliminiamo e storiamo i data-dismiss (seconda barriera sicurezza)
+        //eliminiamo e storiamo i data-dismiss
         let dataDismissStoreValue = item.getAttribute("data-dismiss-store")
         if (dataDismissStoreValue != null) {
             console.log(dataDismissStoreValue)
@@ -320,9 +321,16 @@ function riparaErrore() {
 
             bottoneContatore.style.right = "-" + 75 + "px"
 
-            console.log("Hai corretto tutti gli errori!")
-            setTimeout(function(){ alert("Complimenti, hai corretto tutti gli errori presenti nel sito :D. " + 
-            "Ora è decisamente più fruibile. Grazie ancora di tutto, ti auguro una buona navigazione!"); }, 2000);
+            //Chiudere tutti i modali
+            setTimeout(function(){ 
+                $('.portfolio-modal.modal.fade.show').modal('hide') 
+            }, 1800);
+
+            setTimeout(function(){ 
+                $('#ringraziamentooModal').modal('show') 
+
+                riparaSubito()
+            }, 2000);
         }
         
     //SECONDO CLICK su portofolio-box
@@ -541,6 +549,7 @@ document.addEventListener ("keydown", function (event) {
 
 
 
+
 //correzione px bottone ripara / per ora la levo
 
 function correzioneBottone() {
@@ -585,7 +594,7 @@ for (item of tuttiChiudiModale) {
 
 
 //variabili
-let url = "json/SmartEnoughData.json"
+let url = "json/smartEnoughData.json"
 let datiJson = [] //dove impacchetterò i dati del json
 
 const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",

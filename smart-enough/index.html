@@ -1,10 +1,6 @@
 <!doctype html>
 <html lang="it">
     <head>
-        <meta property="og:title" content="SmartEnough | Bravi, ma non troppo"/>
-        <meta property="og:description" content="Il sito cade a pezzi: aiutaci a ripararlo!"/>
-        <meta property="og:url" content="https://voltanix.github.io/smart-enough"/>
-        <meta property="og:image" content="/img/logo-smart-enough.png"/>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -117,6 +113,7 @@
                 <div class="container">
                     <h2 class="text-center mt-0 text-capitalize font-weight-semibold">Gli ultimi progetti</h2>
                     <hr class="divider my-4">
+                    <h5 class="text-center mt-0 text-capitalize mb-4">Filtra per: ...</h5>
                 </div>
                 <div class="container-fluid p-0">
                     <div class="row no-gutters" id="contenitorePortofolioBox">
@@ -206,7 +203,7 @@
                                             <div class="col-lg-12 text-center">
                                                 <button type="button" id="sendMessageButton" class="btn btn-grad text-uppercase text-white">Invia Messaggio</button>
                                             </div>
-                                            <div class="col-lg-8 mx-auto text-center d-none" id="ringraziamentoForm">
+                                            <div class="col-lg-8 mx-auto text-center d-none mt-5" id="ringraziamentoForm">
                                                 <p><span id="nomeUtente"></span>, grazie mille per il tempo che ci hai dedicato. <br> Il tempo di due partite a Fortnite e veniamo a risponderti!</p>
                                             </div>  
                                         </div>
@@ -314,7 +311,26 @@
                 </div>
             </div>
         </div>  -->
-       
+        <!-- Modale Ringraziamento -->
+        <div class="portfolio-modal modal fade" id="ringraziamentooModal" tabindex="-1" role="dialog" style="display: none;" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content py-5">
+                    <div class="close-modal" data-dismiss="modal">
+                        <i class="fas fa-times fa-3x text-primary" aria-hidden="true"></i>              
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="modal-body">
+                                    <h2 class="font-weight-semibold mb-4 text-center">Grazie!</h2>
+                                    <p class="mb-4">Complimenti, hai corretto tutti gli errori presenti nel sito :D. Ora è decisamente più fruibile. Grazie ancora di tutto, ti auguro una buona navigazione!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Bottone modalità ripara -->
         <div class="nascondi-cell rounded-circle bg-primary text-white d-flex justify-content-center align-items-center" id="bottoneRipara">
             <i class="fas fa-tools fa-2x" id="apriIcona" ></i>
