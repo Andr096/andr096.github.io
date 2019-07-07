@@ -1,0 +1,59 @@
+/*RESPONSIVE*/
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) { 
+
+    .intro-heading {
+        font-size: 3rem;
+        line-height: 3rem;
+    }
+
+    .portfolio-modal .modal-content h2 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {  
+
+    .nascondi-cell {
+        display: none!important;
+    }
+
+    .padding-contact {
+        padding: 4rem;
+    }
+
+    .portfolio-modal .modal-content h2 {
+        font-size: 2rem;
+    }
+}
+
+/* // Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) { 
+
+    .padding-contact {
+        padding: 3.5rem 3.5rem;
+    }
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+
+    .intro-heading {
+        font-size: 2.5rem;
+        line-height: 2.5rem;
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+    }
+
+    .padding-contact {
+        padding: 2.2rem 1rem;
+    }
+
+    .portfolio-modal .modal-content h2 {
+        font-size: 1.8rem;
+    }
+}
