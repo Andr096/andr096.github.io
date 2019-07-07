@@ -220,7 +220,7 @@ bottoneInvia.addEventListener("click", controlloInput)
 
 let bottoneRipara = document.getElementById("bottoneRipara")
 let bottoneContatore = document.getElementById("bottoneContatore") 
-let audioChiaveInglese = new Audio('../sound/ratchet-sound-effect.mp3');
+let audioChiaveInglese = new Audio('sound/ratchet-sound-effect.mp3');
 let listaElementSbagliati = document.querySelectorAll('.correggimi');
 let stoRiparando = false;
 let riparazioneFinita = false;
@@ -585,7 +585,7 @@ for (item of tuttiChiudiModale) {
 
 
 //variabili
-let url = "../json/SmartEnoughData.json"
+let url = "json/SmartEnoughData.json"
 let datiJson = [] //dove impacchetterò i dati del json
 
 const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno",
