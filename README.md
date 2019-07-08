@@ -1,12 +1,12 @@
 # voltanix.github.io
 
-- [Amazon Flex](/primo-progetto/)
+[Amazon Flex](/primo-progetto/)
 
-- [Rick and Morty](/rick-morty/)
+[Rick and Morty](/rick-morty/)
 
-- [Lavagna Magica](/lavagna-magica/)
+[Lavagna Magica](/lavagna-magica/)
 
-- [Smart Enough](/smart-enough/)
+[Smart Enough](/smart-enough/)
 
 ## Altro
 
