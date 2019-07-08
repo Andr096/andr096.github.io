@@ -325,7 +325,7 @@ function riparaSubito() {
 
     bottoneContatore.style.right = "-" + 75 + "px"
 
-    sezioneFiltri.classList.remove("d-none")
+    sezioneFiltri.classList.remove("d-lg-none")
 
     riparazioneFinita = true
 
@@ -372,7 +372,7 @@ function riparaErrore() {
         if (elementiConErrore.length == 0) {
 
             bottoneContatore.style.right = "-" + 75 + "px"
-            sezioneFiltri.classList.remove("d-none")
+            sezioneFiltri.classList.remove("d-lg-none")
 
             //Chiudere tutti i modali
             setTimeout(function(){ 
