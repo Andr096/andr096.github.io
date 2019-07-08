@@ -1,6 +1,6 @@
 # voltanix.github.io
 
-[progetto amazon](/primo-progetto/)
+[Amazon Flex](/primo-progetto/)
 
 [Rick and Morty](/rick-morty/)
 
