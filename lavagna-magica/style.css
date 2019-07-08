@@ -1,0 +1,44 @@
+button:hover {
+    box-shadow: 0 4px 7px 0 rgba(0,0,0,0.2);
+}
+
+button {
+    height: 30px;
+    width: auto;
+    border-radius: 10px;
+}
+
+header {
+    position: relative;
+    z-index: 1;
+    width: 50%;
+}
+
+.no {
+    display: none;
+}
+
+html {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    font-family: 'Open Sans', sans-serif;
+
+}
+
+.show {display:block;}
+
+#apri {
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 15px    
+}
+
+input {
+    width: auto
+}

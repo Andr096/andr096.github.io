@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="it">
+    <head>
+        <title>Aglieri Andrea - Lavagna Colorata</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <header>
+            <button id="apri" onclick="apriMenu()">Apri Menu</button>
+            <button id="pulisci" onclick="pulisciLavagna()">Pulisci tutto</button>
+            <button id="cancellino" onclick="cancellino()">Cancellino: OFF</button>
+            <button id="sparisci" onclick="sparisci()">Cancellino Super: OFF</button>
+            <section id="menu" class="no">
+                <p>Scegli il colore del pennello: </p>
+                <button onclick="rosso()">ROSSO</button>
+                <button onclick="verde()">VERDE</button>
+                <button onclick="blu()">BLU</button>
+                <button onclick="pennelloCasuale()">CASUALE</button>
+                <button onclick="pennelloDefault()">PENNELLO PAZZO</button>
+                <p>Scegli la modalità: </p>
+                <button onclick="standard()">Forme casuali</button>
+                <button onclick="pittore()">Pittore</button>
+                <button onclick="matematico()">Matematico</button>
+                <button onclick="cometa()">Cometa</button>  
+                <button onclick="lettere()">Lettere</button>  
+                <input id='parola' type="text" placeholder="Che parola vuoi scrivere?">
+                <input id='misura' type="text" placeholder="Dimensione forma/lettera">
+                <p>Effetti:</p>
+                <button id="opacita" onclick="bottoneOpacita()">Opacità dal centro: OFF</button>  
+                <button id="deforma" onclick="bottoneDeforma()">Deforma: OFF</button> 
+                <button id="dim" onclick="bottoneDim()">Effetto dimensione: OFF</button> 
+                <button id="bottSnake" onclick="bottoneSnake()">Snake: OFF</button>
+                <input id='snake' type="text" placeholder="Lunghezza snake">
+                <p>Altro:</p>
+                
+            </section>
+        </header>
+    </body>
+    <script type="text/javascript" src="main.js"></script>
+</html>
