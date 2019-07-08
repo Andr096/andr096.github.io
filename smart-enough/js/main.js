@@ -543,7 +543,11 @@ let url = "json/SmartEnoughData.json"
 let datiJson = [] //dove impacchetterò i dati del json
 let contenitorePortofolioBox = document.getElementById('contenitorePortofolioBox')
 let contenitoreModali = document.getElementById('contenitoreModali')
+let radioButtons = document.getElementById('radioButtons')
 const nomiMesi = ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre"]
+let listaCategorie
+
+
 
 
 
@@ -566,6 +570,30 @@ function filtraCategoria(categoriaSelezionata) {
     }
 }
 
+function creaSezioneFiltri(categorie) {
+
+    for (item of categorie) {
+
+        let formCheck = document.createElement('div')
+        formCheck.className = 'form-check form-check-inline'
+
+        let input = document.createElement('input')
+        input.className = 'form-check-input'
+        input.type = "radio"
+        input.name = "filtro"
+        input.id = item
+        input.value = item
+
+        let label = document.createElement('label')
+        label.className = 'form-check-label'
+        label.setAttribute('for', item)
+        label.innerHTML = item
+
+        radioButtons.append(formCheck)
+        formCheck.append(input)
+        formCheck.append(label)
+    }
+}
 
 function creaBoxPortofolio(progetto) {
 
@@ -746,20 +774,55 @@ function creaElementi(progetti) {
         //console.log(item)
         creaBoxPortofolio(item)
         creaFinestraModale(item)
+
     }
 }
-
-
 
 function chiamataPortofolioJson(data) {
 
     datiJson = data
     creaElementi(datiJson.projects)
+
+    listaCategorie = datiJson.projects.map(function(item){
+        return item.category
+    });
+    console.log(listaCategorie)
+
+    //cancella duplicati cateorie
+    let categorieUniche = listaCategorie.filter(function(item, index){
+
+        console.log(
+            item, 
+            index, 
+            listaCategorie.indexOf(item), 
+            listaCategorie.indexOf(item) === index 
+        );
+        return listaCategorie.indexOf(item) === index
+    });
+
+    console.log(categorieUniche)
+    creaSezioneFiltri(categorieUniche)
 }
 
+//API CALL
 $.get(url, chiamataPortofolioJson)
         
 
+
+
+
+
+// RADIO BUTTONS FILTRO
+
+document.getElementById("Tutti").checked = true;
+
+let radioValue
+$('#radioButtons').on('change', function() {
+
+    radioValue = $("input[name='filtro']:checked").val();
+    console.log("Valore: " + radioValue)
+    filtraCategoria(radioValue)
+});
 
 
 
@@ -806,15 +869,5 @@ $(window).on('load', function(){
 
 
 
-// RADIO BUTTONS FILTRO
 
-document.getElementById("Tutti").checked = true;
-
-let radioValue
-$('#radioButtons').on('change', function() {
-
-    radioValue = $("input[name='filtro']:checked").val();
-    console.log("Valore: " + radioValue)
-    filtraCategoria(radioValue)
- });
 
